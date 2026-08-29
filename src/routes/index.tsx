@@ -47,9 +47,10 @@ const doors = [
 ];
 
 function Home() {
+  const day = new Date().getUTCDate();
   const daily = {
-    concept: concepts[new Date().getUTCDate() % concepts.length],
-    guru: gurus[new Date().getUTCDate() % gurus.length],
+    concept: concepts[day % concepts.length]!,
+    guru: gurus[day % gurus.length]!,
   };
 
   return (

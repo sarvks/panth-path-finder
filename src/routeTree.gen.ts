@@ -10,33 +10,202 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ExploreRouteImport } from './routes/explore'
+import { Route as GlossaryRouteImport } from './routes/glossary'
+import { Route as GurmukhiRouteImport } from './routes/gurmukhi'
+import { Route as GurusRouteImport } from './routes/gurus'
+import { Route as HistoryRouteImport } from './routes/history'
+import { Route as KhalsaRouteImport } from './routes/khalsa'
+import { Route as LangarRouteImport } from './routes/langar'
+import { Route as PhilosophyRouteImport } from './routes/philosophy'
+import { Route as QuestionsRouteImport } from './routes/questions'
+import { Route as ScriptureRouteImport } from './routes/scripture'
+import { Route as StartRouteImport } from './routes/start'
+import { Route as GurusIndexRouteImport } from './routes/gurus.index'
+import { Route as GurusSlugRouteImport } from './routes/gurus.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExploreRoute = ExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlossaryRoute = GlossaryRouteImport.update({
+  id: '/glossary',
+  path: '/glossary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GurmukhiRoute = GurmukhiRouteImport.update({
+  id: '/gurmukhi',
+  path: '/gurmukhi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GurusRoute = GurusRouteImport.update({
+  id: '/gurus',
+  path: '/gurus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KhalsaRoute = KhalsaRouteImport.update({
+  id: '/khalsa',
+  path: '/khalsa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangarRoute = LangarRouteImport.update({
+  id: '/langar',
+  path: '/langar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhilosophyRoute = PhilosophyRouteImport.update({
+  id: '/philosophy',
+  path: '/philosophy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuestionsRoute = QuestionsRouteImport.update({
+  id: '/questions',
+  path: '/questions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScriptureRoute = ScriptureRouteImport.update({
+  id: '/scripture',
+  path: '/scripture',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StartRoute = StartRouteImport.update({
+  id: '/start',
+  path: '/start',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GurusIndexRoute = GurusIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => GurusRoute,
+} as any)
+const GurusSlugRoute = GurusSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => GurusRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/explore': typeof ExploreRoute
+  '/glossary': typeof GlossaryRoute
+  '/gurmukhi': typeof GurmukhiRoute
+  '/gurus': typeof GurusRouteWithChildren
+  '/history': typeof HistoryRoute
+  '/khalsa': typeof KhalsaRoute
+  '/langar': typeof LangarRoute
+  '/philosophy': typeof PhilosophyRoute
+  '/questions': typeof QuestionsRoute
+  '/scripture': typeof ScriptureRoute
+  '/start': typeof StartRoute
+  '/gurus/$slug': typeof GurusSlugRoute
+  '/gurus/': typeof GurusIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/explore': typeof ExploreRoute
+  '/glossary': typeof GlossaryRoute
+  '/gurmukhi': typeof GurmukhiRoute
+  '/history': typeof HistoryRoute
+  '/khalsa': typeof KhalsaRoute
+  '/langar': typeof LangarRoute
+  '/philosophy': typeof PhilosophyRoute
+  '/questions': typeof QuestionsRoute
+  '/scripture': typeof ScriptureRoute
+  '/start': typeof StartRoute
+  '/gurus/$slug': typeof GurusSlugRoute
+  '/gurus': typeof GurusIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/explore': typeof ExploreRoute
+  '/glossary': typeof GlossaryRoute
+  '/gurmukhi': typeof GurmukhiRoute
+  '/gurus': typeof GurusRouteWithChildren
+  '/history': typeof HistoryRoute
+  '/khalsa': typeof KhalsaRoute
+  '/langar': typeof LangarRoute
+  '/philosophy': typeof PhilosophyRoute
+  '/questions': typeof QuestionsRoute
+  '/scripture': typeof ScriptureRoute
+  '/start': typeof StartRoute
+  '/gurus/$slug': typeof GurusSlugRoute
+  '/gurus/': typeof GurusIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/explore'
+    | '/glossary'
+    | '/gurmukhi'
+    | '/gurus'
+    | '/history'
+    | '/khalsa'
+    | '/langar'
+    | '/philosophy'
+    | '/questions'
+    | '/scripture'
+    | '/start'
+    | '/gurus/$slug'
+    | '/gurus/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/explore'
+    | '/glossary'
+    | '/gurmukhi'
+    | '/history'
+    | '/khalsa'
+    | '/langar'
+    | '/philosophy'
+    | '/questions'
+    | '/scripture'
+    | '/start'
+    | '/gurus/$slug'
+    | '/gurus'
+  id:
+    | '__root__'
+    | '/'
+    | '/explore'
+    | '/glossary'
+    | '/gurmukhi'
+    | '/gurus'
+    | '/history'
+    | '/khalsa'
+    | '/langar'
+    | '/philosophy'
+    | '/questions'
+    | '/scripture'
+    | '/start'
+    | '/gurus/$slug'
+    | '/gurus/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ExploreRoute: typeof ExploreRoute
+  GlossaryRoute: typeof GlossaryRoute
+  GurmukhiRoute: typeof GurmukhiRoute
+  GurusRoute: typeof GurusRouteWithChildren
+  HistoryRoute: typeof HistoryRoute
+  KhalsaRoute: typeof KhalsaRoute
+  LangarRoute: typeof LangarRoute
+  PhilosophyRoute: typeof PhilosophyRoute
+  QuestionsRoute: typeof QuestionsRoute
+  ScriptureRoute: typeof ScriptureRoute
+  StartRoute: typeof StartRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +217,125 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/explore': {
+      id: '/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof ExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/glossary': {
+      id: '/glossary'
+      path: '/glossary'
+      fullPath: '/glossary'
+      preLoaderRoute: typeof GlossaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gurmukhi': {
+      id: '/gurmukhi'
+      path: '/gurmukhi'
+      fullPath: '/gurmukhi'
+      preLoaderRoute: typeof GurmukhiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gurus': {
+      id: '/gurus'
+      path: '/gurus'
+      fullPath: '/gurus'
+      preLoaderRoute: typeof GurusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/khalsa': {
+      id: '/khalsa'
+      path: '/khalsa'
+      fullPath: '/khalsa'
+      preLoaderRoute: typeof KhalsaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/langar': {
+      id: '/langar'
+      path: '/langar'
+      fullPath: '/langar'
+      preLoaderRoute: typeof LangarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/philosophy': {
+      id: '/philosophy'
+      path: '/philosophy'
+      fullPath: '/philosophy'
+      preLoaderRoute: typeof PhilosophyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/questions': {
+      id: '/questions'
+      path: '/questions'
+      fullPath: '/questions'
+      preLoaderRoute: typeof QuestionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scripture': {
+      id: '/scripture'
+      path: '/scripture'
+      fullPath: '/scripture'
+      preLoaderRoute: typeof ScriptureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/start': {
+      id: '/start'
+      path: '/start'
+      fullPath: '/start'
+      preLoaderRoute: typeof StartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gurus/': {
+      id: '/gurus/'
+      path: '/'
+      fullPath: '/gurus/'
+      preLoaderRoute: typeof GurusIndexRouteImport
+      parentRoute: typeof GurusRoute
+    }
+    '/gurus/$slug': {
+      id: '/gurus/$slug'
+      path: '/$slug'
+      fullPath: '/gurus/$slug'
+      preLoaderRoute: typeof GurusSlugRouteImport
+      parentRoute: typeof GurusRoute
+    }
   }
 }
 
+interface GurusRouteChildren {
+  GurusSlugRoute: typeof GurusSlugRoute
+  GurusIndexRoute: typeof GurusIndexRoute
+}
+
+const GurusRouteChildren: GurusRouteChildren = {
+  GurusSlugRoute: GurusSlugRoute,
+  GurusIndexRoute: GurusIndexRoute,
+}
+
+const GurusRouteWithChildren = GurusRoute._addFileChildren(GurusRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ExploreRoute: ExploreRoute,
+  GlossaryRoute: GlossaryRoute,
+  GurmukhiRoute: GurmukhiRoute,
+  GurusRoute: GurusRouteWithChildren,
+  HistoryRoute: HistoryRoute,
+  KhalsaRoute: KhalsaRoute,
+  LangarRoute: LangarRoute,
+  PhilosophyRoute: PhilosophyRoute,
+  QuestionsRoute: QuestionsRoute,
+  ScriptureRoute: ScriptureRoute,
+  StartRoute: StartRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
